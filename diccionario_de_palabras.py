@@ -22,7 +22,16 @@ def lista_diccionario(lista):
             else:
                 diccionario[palabras2] = 1
     return diccionario
+def cant_palabras(diccionario):
+    total=0
+    for repeticiones in diccionario.values():
+        total += repeticiones
+    return total
+
+def long_max_palabras():
+    return len(max(lista_diccionario(texto_lista()),key=len))
 
 def main():
-    dicc=lista_diccionario(texto_lista())
-    return sorted(dicc.items(),key = lambda x:x[0])
+    dicc = lista_diccionario(texto_lista())
+    return (sorted(dicc.items(),key=lambda x:x[0]) ,cant_palabras(dicc))
+
